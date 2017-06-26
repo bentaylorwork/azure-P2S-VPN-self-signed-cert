@@ -1,5 +1,7 @@
 # Microsoft Azure - Point-To-Site VPN self-signed certificate helper
 
+![Build Status](https://bentaylorwork.visualstudio.com/_apis/public/build/definitions/73ca04c1-3471-4fcd-93fd-420aadc206e1/13/badge)
+
 ## Overview
 A PowerShell module to help generate the required self-signed certificates to set up a Point-To-Site VPN on Microsoft Azure.
 
