@@ -3,11 +3,10 @@ if(-not (Get-Module azureVpnP2SSelfSignedCertificate)) {
   Import-Module (Join-Path $here 'azureVpnP2SSelfSignedCertificate.psd1') 
 }
 
-function New-SelfSignedCertificate() {
-    $null
-}
-
 InModuleScope -moduleName azureVpnP2SSelfSignedCertificate {
+    function New-SelfSignedCertificate() {
+        $null
+    }
     Describe 'New-AzureVPNRootCertificate' {
         BeforeAll {
             Mock New-SelfSignedCertificate {}
