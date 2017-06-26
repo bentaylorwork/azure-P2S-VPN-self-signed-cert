@@ -4,11 +4,6 @@ if(-not (Get-Module azureVpnP2SSelfSignedCertificate)) {
 }
 
 InModuleScope -moduleName azureVpnP2SSelfSignedCertificate {
-$SecureString = @"
-<Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
-  <SS>01000000d08c9ddf0115d1118c7a00c04fc297eb01000000c8065a17e1221a4cab2c0daed127129000000000020000000000106600000001000020000000edf85e61f6322dee7feef77ff391e83dce4f6c34ddffe751a18d5b25af69d30e000000000e800000000200002000000082640935aa91c6ac5f979386a9b93c6951b2a3a3bb390c60ed3ea803773addad10000000c9d89fc04d7b38a5610af86daf8dedd0400000000738658973dead70353035b65a18ffd4f6f04d37837b90023fa18d90a9423ef351bba578353396a5559929047c4adc175942855419b67050efaf41e7b2702a31</SS>
-</Objs>
-"@
 
 $certInfo = @"
 <Objs Version="1.1.0.1" xmlns="http://schemas.microsoft.com/powershell/2004/04">
@@ -96,6 +91,8 @@ $certInfo = @"
             Mock Get-Item {
                 [System.Management.Automation.PSSerializer]::Deserialize($certInfo)
             }
+
+            $SecureString =  'password123' | ConvertTo-SecureString -AsPlainText -Force
         }
 
         Context 'General' {
